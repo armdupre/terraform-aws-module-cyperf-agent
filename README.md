@@ -1,1 +1,1 @@
-# terraform-aws-module-cyperf-agent
+# module-cyperf-agent/aws
