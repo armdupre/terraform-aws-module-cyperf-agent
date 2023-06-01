@@ -37,13 +37,13 @@ variable "Eth1PrivateIpAddresses" {
 	type = list(string)
 }
 
-variable "Eth1SubnetId" {
-	description = "Id of the security group associated with second network interface"
+variable "Eth1SecurityGroupId" {
+	description = "Id of the subnet associated with the second network interface"
 	type = string
 }
 
-variable "Eth1SecurityGroupId" {
-	description = "Id of the subnet associated with the second network interface"
+variable "Eth1SubnetId" {
+	description = "Id of the security group associated with second network interface"
 	type = string
 }
 
@@ -102,6 +102,6 @@ variable "UserProjectTag" {
 
 variable "Version" {
 	default = "2-1"
-	description "Versioning of the application using the deployment
+	description "Versioning of the application using the deployment"
 	type = string
 }
