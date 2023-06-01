@@ -33,9 +33,9 @@ resource "aws_instance" "Instance" {
 resource "aws_network_interface" "Eth0" {
 	description = local.Eth0Name
 	source_dest_check = local.InterfaceSourceDestCheck
-	subnet_id = local.PublicSubnetId
+	subnet_id = local.Eth0SubnetId
 	security_groups = [
-		local.PublicSecurityGroupId
+		local.Eth0SecurityGroupId
 	]
 	private_ips = [ local.Eth0PrivateIpAddress ]
 	tags = {
@@ -48,9 +48,9 @@ resource "aws_network_interface" "Eth0" {
 resource "aws_network_interface" "Eth1" {
 	description = local.Eth1Name
 	source_dest_check = local.InterfaceSourceDestCheck
-	subnet_id = local.PrivateSubnetId
+	subnet_id = local.Eth1SubnetId
 	security_groups = [
-		local.PrivateSecurityGroupId
+		local.Eth1SecurityGroupId
 	]
 	private_ips = local.Eth1PrivateIpAddresses
 	tags = {
