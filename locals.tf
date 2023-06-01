@@ -6,6 +6,9 @@ locals {
 	Eth0PrivateIpAddress = var.Eth0PrivateIpAddress
 	Eth1Name = "${local.Preamble}-eth1-${local.Region}"
 	Eth1PrivateIpAddresses = var.Eth1PrivateIpAddresses
+	IamInstanceProfileName = "${local.Preamble}-iam-instance-profile-${local.Region}"
+	IamPolicyName = "${local.Preamble}-iam-policy-${local.Region}"
+	IamRoleName = "${local.Preamble}-iam-role-${local.Region}"
 	InterfaceSourceDestCheck = false
 	InstanceDisableApiTermination = false
 	InstanceEbsDeleteOnTermination = true
@@ -16,18 +19,17 @@ locals {
 	InstanceName = "${local.Preamble}-${local.Region}"
 	InstanceType = var.InstanceType
 	PlacementGroupId = var.PlacementGroupId
-	Preamble = "${local.UserLoginTag}-${local.ProjectTag}-${local.Tag}-${local.InstanceId}-${local.Version}"
+	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.InstanceId}-${local.Version}"
 	PrivateSecurityGroupId = var.PrivateSecurityGroupId
 	PrivateSubnetId = var.PrivateSubnetId
 	PublicSecurityGroupId = var.PublicSecurityGroupId
 	PublicSubnetId = var.PublicSubnetId
 	Region = data.aws_region.current.name
-	Tag = var.tag
+	Tag = var.Tag
 	UserEmailTag = var.UserEmailTag
 	UserLoginTag = var.UserLoginTag
 	UserProjectTag = var.UserProjectTag
 	Version = var.Version
-	uuid = substr(uuid(), 1, 6)
 }
 
 locals {

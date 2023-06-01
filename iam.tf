@@ -1,5 +1,5 @@
 resource "aws_iam_instance_profile" "IamInstanceProfile" {
-	name = "${local.UserLoginTag}_${local.ProjectTag}_IAM_INSTANCE_PROFILE_${local.uuid}_${local.RegionTag}"
+	name = local.IamInstanceProfileName
 	role = aws_iam_role.IamRole.name
 }
 
@@ -9,7 +9,7 @@ resource "aws_iam_role_policy_attachment" "IamRolePolicyAttachment" {
 }
 
 resource "aws_iam_role" "IamRole" {
-	name = "${local.UserLoginTag}_${local.ProjectTag}_IAM_ROLE_${local.uuid}_${local.RegionTag}"
+	name = local.IamRoleName
 	assume_role_policy = <<EOF
 {
 	"Version": "2012-10-17",
@@ -28,7 +28,7 @@ EOF
 }
 
 resource "aws_iam_policy" "IamPolicy" {
-	name = "${local.UserLoginTag}_${local.ProjectTag}_IAM_POLICY_${local.uuid}_${local.RegionTag}"
+	name = local.IamPolicyName
 	description = "IamPolicy"
 	policy = jsonencode({
 		Version = "2012-10-17"
