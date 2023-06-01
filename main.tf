@@ -7,9 +7,9 @@ resource "aws_instance" "Instance" {
 	iam_instance_profile = aws_iam_instance_profile.IamInstanceProfile.id
 	placement_group = local.PlacementGroupId
 	tags = {
-		Name = "${local.UserLoginTag}_${local.ProjectTag}_${local.InstanceId}_${local.Tag}_${local.Version}_${local.RegionTag}"
+		Name = local.InstanceName
 		Owner = local.UserEmailTag
-		Project = local.ProjectTag
+		Project = local.UserProjectTag
 	}
 	user_data = local.init_cli
 	network_interface {
@@ -31,7 +31,7 @@ resource "aws_instance" "Instance" {
 }
 
 resource "aws_network_interface" "Eth0" {
-	description = "${local.UserLoginTag}_${local.ProjectTag}_${local.Tag}_${local.InstanceId}_${local.Version}_ETH0_${local.RegionTag}"
+	description = local.Eth0Name
 	source_dest_check = local.InterfaceSourceDestCheck
 	subnet_id = local.PublicSubnetId
 	security_groups = [
@@ -39,14 +39,14 @@ resource "aws_network_interface" "Eth0" {
 	]
 	private_ips = [ local.Eth0PrivateIpAddress ]
 	tags = {
-		Name = "${local.UserLoginTag}_${local.ProjectTag}_${local.Tag}_${local.InstanceId}_${local.Version}_ETH0_${local.RegionTag}"
+		Name = local.Eth0Name
 		Owner = local.UserEmailTag
-		Project = local.ProjectTag
+		Project = local.UserProjectTag
 	}
 }
 
 resource "aws_network_interface" "Eth1" {
-	description = "${local.UserLoginTag}_${local.ProjectTag}_${local.Tag}_${local.InstanceId}_${local.Version}_ETH1_${local.RegionTag}"
+	description = local.Eth1Name
 	source_dest_check = local.InterfaceSourceDestCheck
 	subnet_id = local.PrivateSubnetId
 	security_groups = [
@@ -54,9 +54,9 @@ resource "aws_network_interface" "Eth1" {
 	]
 	private_ips = local.Eth1PrivateIpAddresses
 	tags = {
-		Name = "${local.UserLoginTag}_${local.ProjectTag}_${local.Tag}_${local.InstanceId}_${local.Version}_ETH1_${local.RegionTag}"
+		Name = local.Eth1Name
 		Owner = local.UserEmailTag
-		Project = local.ProjectTag
+		Project = local.UserProjectTag
 	}
 }
 

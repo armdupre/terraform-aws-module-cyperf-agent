@@ -25,7 +25,7 @@ variable "Eth1PrivateIpAddresses" {
 }
 
 variable "InstanceId" {
-	default = "AGENT1"
+	default = "agent"
 	type = string
 }
 
@@ -51,11 +51,6 @@ variable "PrivateSecurityGroupId" {
 	type = string
 }
 
-variable "ProjectTag" {
-	default = "CLOUD_IST"
-	type = string
-}
-
 variable "PublicSecurityGroupId" {
 	type = string
 }
@@ -64,9 +59,16 @@ variable "PublicSubnetId" {
 	type = string
 }
 
-variable "UserEmailTag" {
+variable "Tag" {
+	default = "example"
+	description = "App ID tag of application using the deployment"
 	type = string
+}
+
+variable "UserEmailTag" {
+	default = "terraform@example.com"
 	description = "Email address tag of user creating the deployment"
+	type = string
 	validation {
 		condition = length(var.UserEmailTag) >= 14
 		error_message = "UserEmailTag minimum length must be >= 14."
@@ -74,10 +76,22 @@ variable "UserEmailTag" {
 }
 
 variable "UserLoginTag" {
-	type = string
+	default = "terraform"
 	description = "Login ID tag of user creating the deployment"
+	type = string
 	validation {
 		condition = length(var.UserLoginTag) >= 4
 		error_message = "UserLoginTag minimum length must be >= 4."
 	}
+}
+
+variable "UserProjectTag" {
+	default = "module"
+	description = "Project tag of user creating the deployment"
+	type = string
+}
+
+variable "Version" {
+	default = "2-1"
+	type = string
 }
