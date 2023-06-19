@@ -13,15 +13,15 @@ locals {
 	IamInstanceProfileName = "${local.Preamble}-iam-instance-profile-${local.Region}"
 	IamPolicyName = "${local.Preamble}-iam-policy-${local.Region}"
 	IamRoleName = "${local.Preamble}-iam-role-${local.Region}"
-	InterfaceSourceDestCheck = false
 	InstanceDisableApiTermination = false
 	InstanceEbsDeleteOnTermination = true
 	InstanceEbsVolumeType = "gp2"
 	InstanceId = var.InstanceId
 	InstanceInstanceInitiatedShutdownBehavior = "stop"
 	InstanceMonitoring = false
-	InstanceName = "${local.Preamble}-${local.Region}"
+	InstanceName = "${local.Preamble}-instance-${local.Region}"
 	InstanceType = var.InstanceType
+	InterfaceSourceDestCheck = false
 	PlacementGroupId = var.PlacementGroupId
 	Preamble = "${local.UserLoginTag}-${local.UserProjectTag}-${local.Tag}-${local.InstanceId}-${local.Version}"
 	Region = data.aws_region.current.name

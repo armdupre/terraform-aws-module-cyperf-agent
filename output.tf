@@ -1,4 +1,5 @@
 output "Ami" {
+	description = "Amazon Machine Image resource associated with the EC2 instance."
 	value = {
 		"image_id" : data.aws_ami.Ami.image_id
 		"name" : data.aws_ami.Ami.name
@@ -6,7 +7,16 @@ output "Ami" {
 	}
 }
 
+output "Eth0ElasticIp" {
+	description = "Elastic Ip resource associated with the first network interface."
+	value = {
+		"public_dns" : aws_eip.Eth0ElasticIp.public_dns
+		"public_ip" : aws_eip.Eth0ElasticIp.public_ip
+	}
+}
+
 output "Instance" {
+	description = "Instance resource associated with the EC2 instance."
 	value = {
 		"ami" : aws_instance.Instance.ami
 		"arn" : aws_instance.Instance.arn

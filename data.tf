@@ -6,4 +6,5 @@ data "aws_ami" "Ami" {
 		name = "name"
 		values = [ local.AmiName ]
     }
+	most_recent = true
 }
