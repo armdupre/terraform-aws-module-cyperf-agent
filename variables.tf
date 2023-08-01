@@ -1,5 +1,5 @@
 variable "AmiName" {
-	default = "cyperf-agent-1-0-862-master-tiger-1-0-3-523-10cb6682-8f45-4471-8f02-a4e12a7d5fb3"
+	default = "cyperf-agent-1-0-1161-master-tiger-1-0-3-575-10cb6682-8f45-4471-8f02-a4e12a7d5fb3"
 	description = "AMI name used for deploying instances"
 	type = string
 }
@@ -54,12 +54,32 @@ variable "InstanceId" {
 }
 
 variable "InstanceType" {
-	default = "c5n.4xlarge"
+	default = "c5n.9xlarge"
 	description = "Instance type of VM"
 	type = string
 	validation {
-		condition = can(regex("c5n.18xlarge", var.InstanceType)) || can(regex("c5n.9xlarge", var.InstanceType)) || can(regex("c5n.4xlarge", var.InstanceType))
-		error_message = "InstanceType must be one of (c5n.18xlarge | c5n.9xlarge | c5n.4xlarge) types."
+		condition = contains([	"m3.xlarge", "m3.2xlarge",
+								"m4.xlarge", "m4.2xlarge", "m4.4xlarge",
+								"m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.12xlarge",
+								"m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge",
+								"c3.2xlarge", "c3.4xlarge", "c3.8xlarge",
+								"c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge",
+								"c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge",
+								"c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge",
+								"c6in.2xlarge", "c6in.24xlarge"
+						], var.InstanceType)
+		error_message = <<EOF
+InstanceType must be one of the following types:
+	m3.xlarge, m3.2xlarge,
+	m4.xlarge, m4.2xlarge, m4.4xlarge,
+	m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge, m5.12xlarge,
+	m5n.large, m5n.xlarge, m5n.2xlarge, m5n.4xlarge, m5n.8xlarge,
+	c3.2xlarge, c3.4xlarge, c3.8xlarge,
+	c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge,
+	c5.xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.12xlarge,
+	c5n.xlarge, c5n.2xlarge, c5n.4xlarge, c5n.9xlarge, c5n.18xlarge,
+	c6in.2xlarge, c6in.24xlarge
+		EOF
 	}
 }
 
@@ -101,7 +121,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "2-1"
+	default = "2-5"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
