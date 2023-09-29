@@ -53,12 +53,6 @@ variable "InstanceCustomName" {
 	type = string
 }
 
-variable "InstanceEnableCustomName" {
-	default = false
-	description = "Whether or not to use a custom instance string instead of an automatically generated name"
-	type = string
-}
-
 variable "InstanceId" {
 	default = "agent"
 	description = "Id of the instance of this module that ensures uniqueness"
