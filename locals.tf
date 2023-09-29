@@ -13,13 +13,15 @@ locals {
 	IamInstanceProfileName = "${local.Preamble}-iam-instance-profile-${local.Region}"
 	IamPolicyName = "${local.Preamble}-iam-policy-${local.Region}"
 	IamRoleName = "${local.Preamble}-iam-role-${local.Region}"
+	InstanceCustomName = var.InstanceCustomName
 	InstanceDisableApiTermination = false
 	InstanceEbsDeleteOnTermination = true
 	InstanceEbsVolumeType = "gp2"
+	InstanceEnableCustomName = var.InstanceEnableCustomName
 	InstanceId = var.InstanceId
 	InstanceInstanceInitiatedShutdownBehavior = "stop"
 	InstanceMonitoring = false
-	InstanceName = "${local.Preamble}-instance-${local.Region}"
+	InstanceName = local.InstanceEnableCustomName == true ? local.InstanceCustomName : "${local.Preamble}-instance-${local.Region}" 
 	InstanceType = var.InstanceType
 	InterfaceSourceDestCheck = false
 	PlacementGroupId = var.PlacementGroupId

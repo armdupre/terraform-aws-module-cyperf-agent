@@ -47,6 +47,18 @@ variable "Eth1SubnetId" {
 	type = string
 }
 
+variable "InstanceCustomName" {
+	default = null
+	description = "Custom instance name used to override the default automatically generated name"
+	type = string
+}
+
+variable "InstanceEnableCustomName" {
+	default = false
+	description = "Whether or not to use a custom instance string instead of an automatically generated name"
+	type = string
+}
+
 variable "InstanceId" {
 	default = "agent"
 	description = "Id of the instance of this module that ensures uniqueness"
