@@ -19,7 +19,7 @@ locals {
 	InstanceId = var.InstanceId
 	InstanceInstanceInitiatedShutdownBehavior = "stop"
 	InstanceMonitoring = false
-	InstanceName = var.InstanceCustomName == null ? "${local.Preamble}-instance-${local.Region}" : var.InstanceCustomName 
+	InstanceName = var.InstanceName == null ? "${local.Preamble}-instance-${local.Region}" : var.InstanceName 
 	InstanceType = var.InstanceType
 	InterfaceSourceDestCheck = false
 	PlacementGroupId = var.PlacementGroupId
