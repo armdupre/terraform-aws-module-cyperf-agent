@@ -61,7 +61,6 @@ resource "aws_network_interface" "Eth1" {
 }
 
 resource "aws_eip" "Eth0ElasticIp" {
-	count = local.Eth0EnableElasticIp == true ? 1 : 0
 	domain = "vpc"
 	network_interface = aws_network_interface.Eth0.id
 	depends_on = [
