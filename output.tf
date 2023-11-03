@@ -10,8 +10,8 @@ output "Ami" {
 output "Eth0ElasticIp" {
 	description = "Elastic Ip resource associated with the first network interface."
 	value = {
-		"public_dns" : aws_eip.Eth0ElasticIp.public_dns
-		"public_ip" : aws_eip.Eth0ElasticIp.public_ip
+		"public_dns" : join("https://", aws_eip.Eth0ElasticIp.*.public_dns)
+		"public_ip" : aws_eip.Eth0ElasticIp.*.public_ip
 	}
 }
 

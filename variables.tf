@@ -15,6 +15,12 @@ variable "AppEth0IpAddress" {
 	type = string
 }
 
+variable "Eth0EnableElasticIp" {
+	default = true
+	description = "Indicates whether or not to create and attach an elastic ip to first network interface"
+	type = bool
+}
+
 variable "Eth0PrivateIpAddress" {
 	default = "10.0.10.11"
 	description = "Private IP address associated with the first network interface"
