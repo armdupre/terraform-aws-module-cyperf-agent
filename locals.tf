@@ -36,6 +36,7 @@ locals {
 	init_cli = <<-EOF
 #!/bin/bash -xe
 snap list amazon-ssm-agent
+rm -rf /etc/portmanager/node_id.txt
 cyperfagent controller set ${local.AppEth0IpAddress}
     EOF
 }
