@@ -1,5 +1,5 @@
 variable "AmiName" {
-	default = "image-cyperf-agent-1-0-1191-master-tiger-1-0-3-614-10cb6682-8f45-4471-8f02-a4e12a7d5fb3"
+	default = "cyperf-agent-1-0-1191-master-tiger-1-0-3-614-Image-10cb6682-8f45-4471-8f02-a4e12a7d5fb3"
 	description = "AMI name used for deploying instances"
 	type = string
 }
