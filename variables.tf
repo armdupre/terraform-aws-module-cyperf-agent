@@ -38,12 +38,12 @@ variable "Eth1PrivateIpAddresses" {
 }
 
 variable "Eth1SecurityGroupId" {
-	description = "Id of the subnet associated with the second network interface"
+	description = "Id of the security group associated with second network interface"
 	type = string
 }
 
 variable "Eth1SubnetId" {
-	description = "Id of the security group associated with second network interface"
+	description = "Id of the subnet associated with the second network interface"
 	type = string
 }
 
