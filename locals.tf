@@ -2,6 +2,7 @@ locals {
 	AmiName = var.AmiName
 	AmiOwner = var.AmiOwner
 	AppEth0IpAddress = var.AppEth0IpAddress
+	Eth0EnableElasticIp = var.Eth0EnableElasticIp
 	Eth0Name = "${local.Preamble}-eth0-${local.Region}"
 	Eth0PrivateIpAddress = var.Eth0PrivateIpAddress
 	Eth0SecurityGroupId = var.Eth0SecurityGroupId
