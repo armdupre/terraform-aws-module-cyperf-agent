@@ -1,4 +1,5 @@
 resource "aws_instance" "Instance" {
+	associate_public_ip_address = local.InstanceAssociatePublicIpAddress
 	disable_api_termination = local.InstanceDisableApiTermination
 	instance_initiated_shutdown_behavior = local.InstanceInstanceInitiatedShutdownBehavior
 	ami = data.aws_ami.Ami.image_id

@@ -14,6 +14,7 @@ locals {
 	IamInstanceProfileName = "${local.Preamble}-iam-instance-profile-${local.Region}"
 	IamPolicyName = "${local.Preamble}-iam-policy-${local.Region}"
 	IamRoleName = "${local.Preamble}-iam-role-${local.Region}"
+	InstanceAssociatePublicIpAddress = true
 	InstanceDisableApiTermination = false
 	InstanceEbsDeleteOnTermination = true
 	InstanceEbsVolumeType = "gp2"
