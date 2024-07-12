@@ -1,5 +1,5 @@
 variable "AmiName" {
-	default = "image-master-tiger-1-0-3-656-10cb6682-8f45-4471-8f02-a4e12a7d5fb3"
+	default = "Img-agent-1-0-1328-master-tiger-4-0-3-704-10cb6682-8f45-4471-8f02-a4e12a7d5fb3"
 	description = "AMI name used for deploying instances"
 	type = string
 }
@@ -133,7 +133,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "3-0"
+	default = "4-0"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
