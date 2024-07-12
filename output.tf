@@ -16,9 +16,9 @@ output "Eth0" {
 
 output "Eth0ElasticIp" {
 	description = "Elastic Ip resource associated with the first network interface."
-	value = {
-		"public_dns" : aws_eip.Eth0ElasticIp.*.public_dns
-		"public_ip" : aws_eip.Eth0ElasticIp.*.public_ip
+	value = local.Eth0EnableElasticIp == false ? null : {
+		"public_dns" : one(aws_eip.Eth0ElasticIp.*.public_dns)
+		"public_ip" : one(aws_eip.Eth0ElasticIp.*.public_ip)
 	}
 }
 
