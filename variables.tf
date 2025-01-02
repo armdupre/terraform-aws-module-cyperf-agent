@@ -1,5 +1,5 @@
 variable "AmiName" {
-	default = "cyperf-agent-1-0-1400-master-tiger-5-0-3-723-img-10cb6682-8f45-4471-8f02-a4e12a7d5fb3"
+	default = "cyperf-agent-1-0-1429-master-tiger-6-0-3-746_img-10cb6682-8f45-4471-8f02-a4e12a7d5fb3"
 	description = "AMI name used for deploying instances"
 	type = string
 }
@@ -133,7 +133,7 @@ variable "UserProjectTag" {
 }
 
 variable "Version" {
-	default = "5-0"
+	default = "6-0"
 	description = "Versioning of the application using the deployment"
 	type = string
 }
